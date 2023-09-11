@@ -7,6 +7,7 @@ class Student(models.Model):
     Sage=models.IntegerField()
     Sid=models.IntegerField()
     Semail=models.EmailField()
+    
 
     def __str__(self):
         return self.Sname

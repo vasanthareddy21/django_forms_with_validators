@@ -15,14 +15,17 @@ def student(request):
             Sage=SFDO.cleaned_data['Sage']
             Sid=SFDO.cleaned_data['Sid']
             Semail=SFDO.cleaned_data['Semail']
+            Remail=SFDO.cleaned_data['Remail']
             SO=Student.objects.get_or_create(Sname=Sname,Sage=Sage,Sid=Sid,Semail=Semail)[0]
             SO.save()
 
         #Student.objects.filter(Sname='kavitha').update(Semail='kavi@gmail.com')
-        Student.objects.filter(Sname='kavitha').delete()
-        QSO=Student.objects.all()
-        d1={'QSO':QSO}
-        return render(request,'display_student.html',d1)
+            Student.objects.filter(Sname='kavitha').delete()
+            QSO=Student.objects.all()
+            d1={'QSO':QSO}
+            return render(request,'display_student.html',d1)
+        else:
+            return HttpResponse('invalid data')
 
     return render(request,'student.html',d)
 
